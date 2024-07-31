@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.2.8"
 	id("io.spring.dependency-management") version "1.1.6"
+	id("groovy")
 }
 
 group = "com.example"
@@ -24,6 +25,9 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("org.springframework.boot:spring-boot-starter-mustache")
 	testImplementation("org.mockito:mockito-core:3.12.4")
+	testImplementation ("org.codehaus.groovy:groovy-all:3.0.8")
+	testImplementation ("org.spockframework:spock-core:2.0-groovy-3.0")
+
 
 }
 

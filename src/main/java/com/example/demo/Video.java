@@ -1,6 +1,14 @@
 package com.example.demo;
 
 
-record Video(String name){
+import java.util.Objects;
 
+public record Video(String name) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Video video = (Video) o;
+        return Objects.equals(name, video.name);
+    }
 }

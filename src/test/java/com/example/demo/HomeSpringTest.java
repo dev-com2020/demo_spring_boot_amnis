@@ -46,9 +46,18 @@ public class HomeSpringTest {
                 .flashAttr("newVideo",newVideo))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/"));
+    }
 
+    @Test
+    void search_shouldReturnVideosContainQuery() throws Exception{
+        String query = "Spring";
+        List<Video> searchResults = List.of(new Video("Spring boot5"));
+        given(videoService.searchByTitle(query)).willReturn(searchResults);
 
-
+        mockMvc.perform(MockMvcRequestBuilders.get("/search").param("query",query))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"))
+                .andExpect(model().attribute("videos",searchResults));
 
     }
 }

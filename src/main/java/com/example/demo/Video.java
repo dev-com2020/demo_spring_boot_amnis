@@ -11,4 +11,8 @@ public record Video(String name) {
         Video video = (Video) o;
         return Objects.equals(name, video.name);
     }
+
+    public String getTitle(){
+        return name;
+    }
 }

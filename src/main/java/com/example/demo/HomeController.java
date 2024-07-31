@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -23,5 +24,10 @@ public class HomeController {
     public String newVideo(@ModelAttribute Video newVideo){
         videoService.create(newVideo);
         return "redirect:/";
+    }
+    @GetMapping("/search")
+    public String search(@RequestParam("query") String query, Model model){
+        model.addAttribute("videos", videoService.searchByTitle(query));
+        return "index";
     }
 }

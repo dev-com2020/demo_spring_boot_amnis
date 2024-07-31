@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VideoService {
@@ -22,6 +23,12 @@ public class VideoService {
         extend.add(newVideo);
         this.videos = List.copyOf(extend);
         return newVideo;
+    }
+
+    public List<Video> searchByTitle(String query){
+        return videos.stream()
+                .filter(video -> video.getTitle().toLowerCase().contains(query.toLowerCase()))
+                .collect(Collectors.toList());
     }
 
 }

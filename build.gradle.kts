@@ -23,6 +23,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("org.springframework.boot:spring-boot-starter-mustache")
+	testImplementation("org.mockito:mockito-core:3.12.4")
+
 }
 
 tasks.withType<Test> {

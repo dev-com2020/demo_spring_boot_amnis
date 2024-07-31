@@ -1,6 +1,7 @@
 import com.example.demo.HomeController
 import com.example.demo.Video
 import com.example.demo.VideoService
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -15,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(HomeController)
 class HomeControllerSpec extends Specification{
+
     @Autowired
     MockMvc mockMvc
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FILMY</title>
+</head>
+<body>
+<ul>
+    {{#videos}}
+    <li>{{name}}</li>
+    {{/videos}}
+</ul>
+
+<form action="/new-video" method="post">
+    <input type="text" name="name">
+    <button type="submit">DODAJ FILM</button>
+</form>
+</body>
+</html>
